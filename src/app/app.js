@@ -2,6 +2,6 @@
 const angular = require('angular')
 
 angular.module('myApp', [
-  require('./components/wordle-slider').name,
-  require('ng-dialog')
+    require('./components/wordle-slider').name,
+    require('ng-dialog')
 ])

@@ -2,7 +2,8 @@
 
 const hash = require('murmurhash').v2,
     dialogBuilder = require('./helper/dialog-builder'),
-    colorScale = require('./helper/color-helper')
+    colorScale = require('./helper/color-helper'),
+    config = require('../../config')
 
 module.exports = (d3, ngDialog) => {
     return {
@@ -11,8 +12,8 @@ module.exports = (d3, ngDialog) => {
         controller: 'wordleController',
         compile: (element, attrs) => {
 
-            const width = 900,
-                height = 500
+            const width = config.cloudWidth,
+                height = config.cloudHeight
 
             const svg = d3.select(element.children().eq(0)[0])
                 .append('svg')

@@ -1,7 +1,8 @@
 'use strict'
 
 const noUiSlider = require('nouislider'),
-    moment = require('moment')
+    moment = require('moment'),
+    config = require('../../config')
 
 module.exports = (SimpleHttpLoader) => {
     return {
@@ -12,7 +13,7 @@ module.exports = (SimpleHttpLoader) => {
             const slider = element.children().eq(0)[0]
 
             return (scope, element, attrs) => {
-                SimpleHttpLoader('http://192.168.99.100:10010/api/daterange?source=SPIEGEL')
+                SimpleHttpLoader(`${config.api}daterange?source=SPIEGEL`)
                     .then(response => {
                         const fromDate = moment(response.data.from.date).toDate(),
                             toDate = moment(response.data.to.date).toDate()
@@ -38,7 +39,7 @@ module.exports = (SimpleHttpLoader) => {
                         slider.noUiSlider.on('update', (values, handle) => {
                             if (values[handle]) {
                                 scope.$applyAsync(() => {
-                                    scope.date = moment(+values[handle]).format('dddd, MMMM Do, YYYY')
+                                    scope.date = moment(+values[handle]).format(config.fullDate)
                                 })
                             }
                         })
