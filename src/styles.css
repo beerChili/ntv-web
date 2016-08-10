@@ -1,12 +1,20 @@
+a {
+    text-decoration: none;
+    color: rgb(205, 35, 62);
+}
+a:hover {
+    text-decoration: underline;
+    color: rgb(233, 114, 129);
+}
 wordle-slider {
     display: block;
     width: 900px;
     margin: auto;
     padding: 50px;
 }
-wordle-slider svg g text:hover{
-  cursor: pointer;
-  opacity: 0.7;
+wordle-slider svg g text:hover {
+    cursor: pointer;
+    opacity: 0.7;
 }
 div[slider] {
     margin-top: 20px;
@@ -22,5 +30,5 @@ p[date] {
     margin-top: 20px;
 }
 .ngdialog.ngdialog-theme-plain.custom-width .ngdialog-content {
-    width: 600px;
+    width: 800px;
 }
