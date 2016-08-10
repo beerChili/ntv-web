@@ -1,6 +1,6 @@
 'use strict'
 
-const hash = require('./helper/hash'),
+const hash = require('murmurhash').v2,
     dialogBuilder = require('./helper/dialog-builder'),
     colorScale = require('./helper/color-helper')
 
@@ -79,7 +79,7 @@ module.exports = (d3, ngDialog) => {
                                 angle = angle * 180 / Math.PI
                                 return angle
                             })
-                            .random(seed => hash(seed))
+                            .random(seed => hash(seed) / Math.pow(2, 32))
                             .padding(2)
                             .font('Impact')
                             .fontSize(d => wordScale(d.count))
