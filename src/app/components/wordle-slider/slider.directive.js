@@ -13,7 +13,7 @@ module.exports = (SimpleHttpLoader) => {
             const slider = element.children().eq(0)[0]
 
             return (scope, element, attrs) => {
-                SimpleHttpLoader(`${config.api}daterange?source=SPIEGEL`)
+                SimpleHttpLoader(`${config.api}words/daterange?source=SPIEGEL`)
                     .then(response => {
                         const fromDate = moment(response.data.from.date).toDate(),
                             toDate = moment(response.data.to.date).toDate()
